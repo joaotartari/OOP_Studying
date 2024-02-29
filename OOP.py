@@ -1,1 +1,0 @@
-print('My first coding with OOP')
