@@ -1,19 +1,19 @@
 class Carros:
-    def __init__(self, Nome, Marca, Ano, km, Categoria):
-        self.Nome = Nome
-        self.Marca = Marca
-        self.Ano = Ano
+    def __init__(self, nome, marca, ano, km, categoria):
+        self.Nome = nome
+        self.Marca = marca
+        self.Ano = ano
         self.km = km
-        self.Categoria = Categoria
+        self.Categoria = categoria
     def revisao(self):
         kilometragem = self.km
         revi = int(kilometragem/10000)
         if revi >1:
-            print(f'O carro ja fez {revi} revisoes')
+            print(f'O carro ja fez {revi} revisoes.')
         elif revi == 1:
-            print(f'O carro so fez {revi} revisao')
+            print(f'O carro so fez {revi} revisao.')
         else:
-            print('O carro ainda nao fez revisao')
+            print('O carro ainda nao fez revisao.')
 class tv:
     def __init__(self, status:bool, canal:str, tamanho:int, volume:int):
         self.tamanho = tamanho
@@ -27,20 +27,29 @@ class tv:
         else:
             self.status = True
     def mudar_canal(self, canal:str):
-        if self.canal == canal:
-            print('A televisao ja esta nesse canal')
+        if self.status == True:
+            if self.canal == canal:
+                print('A televisao ja esta nesse canal.')
+            else:
+                self.canal = canal
         else:
-            self.canal = canal
+            print('A televisao esta desligada, ligue primeiro para poder mudar de canal.')
     def aumentar_volume(self):
-        if self.volume <100:
-            self.volume += 1
+        if self.status == True:
+            if self.volume <100:
+                self.volume += 1
+            else:
+                print("A televisao ja esta no volume maximo.")
         else:
-            print("A televisao ja esta no volume maximo")
+            print('A televisao esta desligada, ligue primeiro para poder aumentar o volume.')
     def abaixar_volume(self):
-        if self.volume>0:
-            self.volume-=1
+        if self.status == True:
+            if self.volume>0:
+                self.volume-=1
+            else:
+                print("A televisao ja esta no volume minimo")
         else:
-            print("A televisao ja esta no volume minimo")
+            print('A televisao esta desligada, ligue primeiro para poder abaixar o volume.')
     def desligar(self):
         if self.status == False:
             print("A televisao ja esta desligada")
